@@ -37,7 +37,7 @@ HTTP/2,3は高速化がメインなので、機能としてはHTTP/1.1をわか�
 
 ## HTTPリクエストの中身
 
-### `http://hoge.jp/fuga`にリクエストを投げる例
+`http://hoge.jp/fuga`にリクエストを投げる例
 ```text
 POST /fuga HTTP/1.1
 Host: hoge.jp
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-# HTTPレスポンス
+## HTTPレスポンス
 
 ```text
 HTTP/1.1 200 OK
@@ -133,7 +133,7 @@ Connection: close
 
 MEMO: リクエストボディの形式はContent-Typeヘッダで宣言する
 
-# ステータスコード
+## ステータスコード
 ステータスコードは100~500番台の数値で、3桁目毎に分類わけされている
 
 |コード|意味|
@@ -150,11 +150,35 @@ https://developer.mozilla.org/ja/docs/Web/HTTP/Status
 
 # 知っておきたいリクエストヘッダー
 
-- Cookie
-- Content-Type
-
-# Cookie
+## Cookie
 
 > RFC 6265などで定義されたHTTPにおけるウェブサーバとウェブブラウザ間で状態を管理する通信プロトコル、またそこで用いられるウェブブラウザに保存された情報のことを指す。
 
-書き途中
+つまり、セッションIDなど、クライアント-サーバ間で状態を保持しなければならないものを保存する場合に利用するヘッダ
+
+Cookieを設定する場合、サーバのレスポンスヘッダにSet-Cookieヘッダを付与する必要がある
+
+Cookieをセットするヘッダ。サーバがHTTPレスポンスに設定する  
+Set-Cookieヘッダを受け取ったブラウザは以後、リクエストのヘッダにCookieヘッダを付与する。
+
+- サーバからのレスポンス
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+Set-Cookie: jsessionId=xxxxxxx
+
+<html>
+    <a href="/fuga?name=太郎&race=dog">
+</html>
+```
+
+- その後のリクエストヘッダ
+```
+GET /fuga?name=太郎&race=dog HTTP/1.1
+Host: hoge.jp
+User-Agent: Mozilla/5.0 (Windows NT 10.0~略
+Cookie: jsessionId=xxxxxxx
+```
+
+APサーバはCookieに設定されているセッションIDを見てユーザを一意に特定している。  
+セッション以外にも、ユーザ設定やトラッキング情報を持たせることがある。

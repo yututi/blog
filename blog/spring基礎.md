@@ -129,7 +129,7 @@ class HogeBean {
 }
 ```
 
-# 次にSpringの動作概念について
+# Springの動作概念について
 
 ![bg width: 90%](./out/spring/Spring動作概念.png)
 
@@ -137,8 +137,6 @@ class HogeBean {
 - コントローラとサービス(とDAO)もBeanの1つ
 
 ![bg right:40% width:100%](./img/appcontext4.png)
-
-
 
 ## コントローラの定義方法
 
