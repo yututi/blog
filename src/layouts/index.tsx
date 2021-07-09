@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme: Theme) =>
     leftPanePaper: {
       top: 64,
       position: "sticky",
-      maxWidth: 300
-    },
-    leftPanePaperSm: {
-      position: "static",
-      maxWidth: "initial"
+      maxWidth: 300,
+      [theme.breakpoints.down('sm')]: {
+        position: "static",
+        maxWidth: "initial"
+      }
     },
     mainPane: {
       width: "100%"
@@ -35,21 +35,13 @@ const Layout: React.FC = React.memo(({children}) => {
 
   const classes = useStyles()
 
-  const theme = useTheme();
-  const isSm = useMediaQuery(theme.breakpoints.down('sm'))
-
-  const bioPaperClasses = [
-    classes.leftPanePaper,
-    isSm && classes.leftPanePaperSm
-  ].filter(Boolean).join(" ")
-
   return (
       <>
         <Header />
         <Container maxWidth="md" className={classes.container}>
           <Grid container>
             <Grid item sm={12} md={4}>
-              <div className={bioPaperClasses}>
+              <div className={classes.leftPanePaper}>
                 <Bio/>
                 <Tags/>
               </div>
