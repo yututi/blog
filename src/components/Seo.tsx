@@ -50,7 +50,7 @@ const Seo: React.VFC<SeoProps> = ({ description, lang = "ja", title, isArticle =
         },
         {
           property: "og:image",
-          content: `${site.siteMetadata.siteUrl}/site-icon.jpeg`
+          content: `${site.siteMetadata.siteUrl}/site-icon.webp`
         },
         {
           property: "og:type",
