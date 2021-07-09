@@ -16,7 +16,7 @@ module.exports = {
       job: "Web App Engineer"
     },
     description: "技術的なことのメモや社内勉強会資料を置いていきます",
-    siteUrl: `http://localhost:8080`,
+    siteUrl: `https://continuousgakusyu.gatsbyjs.io`,
     repo: "blog",
     social: {
       twitter: "superTantanmen",
@@ -55,18 +55,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-material-ui",
-    // {
-    //   resolve: "gatsby-plugin-manifest",
-    //   options: {
-    //     name: "yututi/notes",
-    //     short_name: "yn",
-    //     start_url: `/`,
-    //     background_color: `#ffffff`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`,
-    //   },
-    // },
     "gatsby-plugin-sass",
     "gatsby-plugin-typegen",
     {
@@ -124,7 +112,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: siteTitle,
-        short_name: "ynotes",
+        short_name: "cg",
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -135,5 +123,4 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-layout`
   ],
-  
 }
