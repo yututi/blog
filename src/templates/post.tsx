@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     alert: {
       marginTop: theme.spacing(1)
+    },
+    root: {
+      maxWidth: "100%"
     }
   }),
 )
@@ -49,10 +52,10 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
   const showExpiredPostAlert = now.getTime() > postedAt.getTime()
 
   return (
-    <>
+    <div>
       <Seo
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        description={post.excerpt}
         isArticle={true}
       />
       <Breadcrumbs aria-label="breadcrumb" className={classes.breadcrumps}>
@@ -66,7 +69,7 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
         <Typography color="textPrimary">Share on:</Typography>
         <Button
           size="small"
-          href={`https://twitter.com/intent/tweet?text=${post.frontmatter.title}&url=${url}`}
+          href={`https://twitter.com/intent/tweet?url=${url}`}
           target="_blank"
           rel="nofollow noopener noreferrer"
           startIcon={<Twitter/>}
@@ -80,7 +83,7 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
         </Alert>
       )}
       <div className={markdownClasses} dangerouslySetInnerHTML={{ __html: post.html }} />
-    </>
+    </div>
   )
 }
 export const query = graphql`
@@ -92,7 +95,6 @@ export const query = graphql`
       excerpt(pruneLength: 100)
       frontmatter {
         title
-        description
         slug
         date
       }

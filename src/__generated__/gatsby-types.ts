@@ -3687,7 +3687,7 @@ type PostTemplateQueryVariables = Exact<{
 
 type PostTemplateQuery = { readonly markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html' | 'excerpt'>
-    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'slug' | 'date'>> }
+    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date'>> }
   )>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
 
 type CeoQueryVariables = Exact<{ [key: string]: never; }>;

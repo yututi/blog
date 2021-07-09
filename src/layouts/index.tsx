@@ -24,9 +24,6 @@ const useStyles = makeStyles((theme: Theme) =>
     leftPanePaperSm: {
       position: "static",
       maxWidth: "initial"
-    },
-    page: {
-      maxWidth: "100%"
     }
   })
 )
@@ -54,7 +51,7 @@ const Layout: React.FC = React.memo(({children}) => {
                 <Tags/>
               </div>
             </Grid>
-            <Grid className={classes.page} item sm={12} md={8}>
+            <Grid item sm={12} md={8}>
                 {children}
             </Grid>
           </Grid>
