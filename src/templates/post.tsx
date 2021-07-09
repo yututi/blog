@@ -25,9 +25,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     alert: {
       marginTop: theme.spacing(1)
-    },
-    root: {
-      maxWidth: "100%"
     }
   }),
 )
@@ -52,7 +49,7 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
   const showExpiredPostAlert = now.getTime() > postedAt.getTime()
 
   return (
-    <div>
+    <>
       <Seo
         title={post.frontmatter.title}
         description={post.excerpt}
@@ -83,7 +80,7 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
         </Alert>
       )}
       <div className={markdownClasses} dangerouslySetInnerHTML={{ __html: post.html }} />
-    </div>
+    </>
   )
 }
 export const query = graphql`
