@@ -34,7 +34,8 @@ const PostTemplate : React.VFC<Props> = ({data}) => {
 export const query = graphql`
   query Index {
     allMarkdownRemark (
-      limit: 100
+      limit: 100,
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
