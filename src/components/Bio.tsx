@@ -68,17 +68,7 @@ const Bio: React.FC = React.memo(() => {
           <Typography component="h5" variant="h5">
             {author.name}
           </Typography>
-          <Avatar className={classes.avatar} alt="me">
-            <StaticImage
-                className="header__icon"
-                layout="fixed"
-                formats={["auto", "webp"]}
-                src="../images/site-icon.jpeg"
-                width={130}
-                height={130}
-                quality={95}
-                alt="avatar"
-              />
+          <Avatar className={classes.avatar} src="/avatar.webp" alt="me">
           </Avatar>
         </Grid>
       </Grid>
