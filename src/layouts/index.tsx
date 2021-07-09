@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       position: "relative",
-      padding: theme.spacing(2),
-      maxWidth: "100%"
+      padding: theme.spacing(2)
     },
     leftPanePaper: {
       top: 64,

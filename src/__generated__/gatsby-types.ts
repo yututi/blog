@@ -3659,26 +3659,10 @@ type SiteBuildMetadataSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type HeaderQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'title'>
-      & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter' | 'github'>> }
-    )> }> };
-
 type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type FooterQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<SiteSiteMetadataAuthor, 'name'>> }> }> };
-
-type CeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type CeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
-      & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
-    )> }> };
 
 type ALlTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3688,18 +3672,33 @@ type ALlTagsQuery = { readonly allMarkdownRemark: { readonly group: ReadonlyArra
       & { tag: MarkdownRemarkGroupConnection['fieldValue'] }
     )> } };
 
+type HeaderQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type HeaderQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'title'>
+      & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter' | 'github'>> }
+    )> }> };
+
+type PostTemplateQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type PostTemplateQuery = { readonly markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html' | 'excerpt'>
+    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'slug' | 'date'>> }
+  )>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+
+type CeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
+      & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
+    )> }> };
+
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type IndexQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MarkdownRemark, 'excerpt'>
-        & { readonly frontmatter: Maybe<(
-          Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date' | 'tags'>
-          & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }> }
-        )> }
-      ) }> } };
 
 type TagQueryVariables = Exact<{
   tag: Scalars['String'];
@@ -3719,15 +3718,16 @@ type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PostsQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date'>> } }> } };
 
-type PostTemplateQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
+type IndexQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PostTemplateQuery = { readonly markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'html' | 'excerpt'>
-    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'slug' | 'date'>> }
-  )>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+type IndexQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { readonly frontmatter: Maybe<(
+          Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date' | 'tags'>
+          & { readonly thumbnail: Maybe<{ readonly childImageSharp: Maybe<{ readonly fixed: Maybe<GatsbyImageSharpFixedFragment> }> }> }
+        )> }
+      ) }> } };
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
