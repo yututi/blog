@@ -2,9 +2,17 @@
   margin-top: 12px;
 }
 
-.markdown-body.dark :not(pre) > code[class*="language-"], pre[class*="language-"] {
+.markdown-body.dark :not(pre) > code[class*="language-"],
+.markdown-body.dark pre[class*="language-"] {
   background: #434343;
-  
+}
+
+:not(pre) > code[class*="language-text"] {
+  background: #d1d5da;
+  color:#434343;
+}
+.markdown-body.dark :not(pre) > code[class*="language-text"] {
+  color:#e4e4e4;
 }
 
 .markdown-body.dark {
