@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "marp-team.marp-vscode",
         "jebbs.plantuml"
     ]
 }

@@ -155,7 +155,7 @@ console.log(array2) // => [1, 2, 3, 4]
 
 ## Promise
 非同期処理用の仕組み
-
+<!-- TODO サンプルコードがどっかからコピペしてきたやつなので変える必要あり -->
 ```js
 function timer(number, callback) {
   setTimeout(function() {
