@@ -34,7 +34,6 @@
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.8.0",
     "node-sass": "^6.0.1",
-    "normalize.css": "^8.0.1",
     "postcss": "^8.2.6",
     "prismjs": "^1.24.1",
     "react": "^17.0.1",
