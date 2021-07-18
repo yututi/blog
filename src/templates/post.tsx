@@ -2,14 +2,22 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Seo from "../components/Seo"
 import "./post.css"
-import { Breadcrumbs, Button, createStyles, makeStyles, Theme, Typography, useTheme } from "@material-ui/core"
+import { 
+  Breadcrumbs, 
+  Button, 
+  createStyles, 
+  makeStyles, 
+  Theme, 
+  Typography, 
+  useTheme,
+  Link as MLink
+} from "@material-ui/core"
 import Alert from '@material-ui/lab/Alert';
-import { Twitter, Facebook } from "@material-ui/icons"
-import { useEffect } from "react"
-import { useState } from "react"
+import { Twitter } from "@material-ui/icons"
 
 type Props = {
   data: GatsbyTypes.PostTemplateQuery
+  pageContext: {[key:string]: string}
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -25,11 +33,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     alert: {
       marginTop: theme.spacing(1)
+    },
+    postFooter: {
+      marginTop: theme.spacing(3)
     }
   }),
 )
 
-const PostTemplate: React.VFC<Props> = ({ data }) => {
+const PostTemplate: React.VFC<Props> = ({ data, pageContext }) => {
   const post = data.markdownRemark
 
   const classes = useStyles()
@@ -41,7 +52,15 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
     theme.palette.type === "dark" && "dark"
   ].filter(Boolean).join(" ")
 
-  const url = `${data.site.siteMetadata.siteUrl}/posts/${post.frontmatter.slug}`
+  const {
+    repo,
+    siteUrl,
+    social
+  } = data.site.siteMetadata
+
+  const url = `${siteUrl}/posts/${post.frontmatter.slug}`
+
+  const issueUrl = `https://github.com/${social.github}/${repo}/issues/new?title=${pageContext.slug}`
 
   const now = new Date()
   now.setFullYear(now.getFullYear() - 1)
@@ -80,6 +99,13 @@ const PostTemplate: React.VFC<Props> = ({ data }) => {
         </Alert>
       )}
       <div className={markdownClasses} dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className={classes.postFooter}>
+        <Typography 
+          color="textPrimary"
+        >
+          💬この記事に対してご意見ありましたら<MLink href={issueUrl}>issue</MLink>にお願いします.
+        </Typography>
+      </div>
     </>
   )
 }
@@ -99,6 +125,10 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+        repo
+        social {
+          github
+        }
       }
     }
   }
