@@ -3708,14 +3708,6 @@ type PostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PostsQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date'>> } }> } };
 
-type CeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type CeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
-      & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
-    )> }> };
-
 type FooterQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3729,6 +3721,14 @@ type HeaderQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
       & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter' | 'github'>> }
     )> }> };
 
+type CeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type CeoQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl'>
+      & { readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter'>> }
+    )> }> };
+
 type ALlTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3736,11 +3736,6 @@ type ALlTagsQuery = { readonly allMarkdownRemark: { readonly group: ReadonlyArra
       Pick<MarkdownRemarkGroupConnection, 'totalCount'>
       & { tag: MarkdownRemarkGroupConnection['fieldValue'] }
     )> } };
-
-type BioQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type BioQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<SiteSiteMetadataAuthor, 'name' | 'summary' | 'livingAt' | 'job'>>, readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter' | 'github'>> }> }> };
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3765,5 +3760,10 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type BioQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type BioQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly author: Maybe<Pick<SiteSiteMetadataAuthor, 'name' | 'summary' | 'livingAt' | 'job'>>, readonly social: Maybe<Pick<SiteSiteMetadataSocial, 'twitter' | 'github'>> }> }> };
 
 }

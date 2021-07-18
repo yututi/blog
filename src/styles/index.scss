@@ -48,6 +48,13 @@ a {
   display: revert;
 }
 
+a {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
 /* Preferred box-sizing value */
 *,
 *::before,

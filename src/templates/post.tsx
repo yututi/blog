@@ -103,7 +103,7 @@ const PostTemplate: React.VFC<Props> = ({ data, pageContext }) => {
         <Typography 
           color="textPrimary"
         >
-          💬この記事に対してご意見ありましたら<MLink href={issueUrl}>issue</MLink>にお願いします.
+          この記事に対してご意見ありましたら<MLink color="secondary" href={issueUrl}>💬Issue</MLink>にお願いします.
         </Typography>
       </div>
     </>
